@@ -76,6 +76,7 @@ function selectAnswer(answer) {
 function updateQuestionPallet() {
     const questionPallet = document.getElementById('questionPallet');
     questionPallet.innerHTML = ''; // Clear existing pallet
+
     questions.forEach((question, index) => {
         const palletButton = document.createElement('button');
         palletButton.textContent = index + 1;
@@ -85,10 +86,8 @@ function updateQuestionPallet() {
             palletButton.style.backgroundColor = 'green';
         } else if (question.status === "not_visited") {
             palletButton.style.backgroundColor = 'gray';
-        } else if (question.status === "unanswered") {
+        } else if (question.status === "skipped") {
             palletButton.style.backgroundColor = 'red';
-        } else if (question.status === "marked_for_review") {
-            palletButton.style.backgroundColor = 'yellow';
         }
 
         palletButton.onclick = function() {
@@ -102,6 +101,10 @@ function updateQuestionPallet() {
 // Function to go to the next question
 function nextQuestion() {
     if (currentQuestionIndex < questions.length - 1) {
+        // If the user skips the question without answering it, mark it as skipped
+        if (questions[currentQuestionIndex].status === "not_visited") {
+            questions[currentQuestionIndex].status = "skipped";
+        }
         currentQuestionIndex++;
         loadQuestions();
     }
@@ -110,15 +113,13 @@ function nextQuestion() {
 // Function to go to the previous question
 function prevQuestion() {
     if (currentQuestionIndex > 0) {
+        // If the user skips the question without answering it, mark it as skipped
+        if (questions[currentQuestionIndex].status === "not_visited") {
+            questions[currentQuestionIndex].status = "skipped";
+        }
         currentQuestionIndex--;
         loadQuestions();
     }
-}
-
-// Function to mark a question for review
-function markForReview() {
-    questions[currentQuestionIndex].status = "marked_for_review";
-    updateQuestionPallet();
 }
 
 // Function to submit the exam
@@ -134,3 +135,4 @@ window.onload = function() {
     startTimer();
     loadQuestions();
 };
+

@@ -94,10 +94,6 @@ header h1 {
     color: white;
 }
 
-.question-pallet button.unanswered {
-    background-color: #f4f4f4;
-    color: #333;
-}
 
 .question-pallet button.skipped {
     background-color: #f44336; /* Red background for skipped or unanswered questions */
