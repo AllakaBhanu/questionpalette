@@ -1,0 +1,194 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header, footer {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Exam Container */
+.exam-container {
+    padding: 20px;
+}
+
+/* Header Styles */
+header h1 {
+    color: #333;
+}
+
+/* Timer Styles */
+.timer {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Main Exam Layout */
+.exam-body {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Question Palette (Left Side) */
+.question-pallet {
+    width: 25%;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.pallet-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.question-pallet button {
+    width: 40px;
+    height: 40px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+/* Question Palette Button Color States */
+.question-pallet button.selected {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.question-pallet button.answered {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.question-pallet button.unanswered {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.question-pallet button.skipped {
+    background-color: #f44336; /* Red background for skipped or unanswered questions */
+    color: white;
+}
+
+.question-pallet button:active {
+    transform: scale(0.95);
+}
+
+/* Exam Question Section (Right Side) */
+.exam-questions {
+    width: 75%;
+}
+
+.exam-questions .question {
+    margin-bottom: 15px;
+}
+
+.exam-questions .question h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.exam-questions .answers {
+    display: flex;
+    flex-direction: column;
+}
+
+.exam-questions .answers input {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.exam-questions .answers input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Navigation Bar */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.navigation button {
+    width: 150px;
+}
+
+/* Submit Button */
+.submit-button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.submit-button-container button {
+    width: 200px;
+}
+
+/* Footer */
+footer {
+    padding: 10px;
+    background-color: #f4f4f4;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .exam-body {
+        flex-direction: column;
+    }
+
+    .question-pallet {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .exam-questions {
+        width: 100%;
+    }
+
+    .navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .submit-button-container {
+        margin-top: 30px;
+    }
+}
+
+
+
